@@ -35,7 +35,7 @@ userSchema.pre('save', async function(next) {
 })
 
 userSchema.methods.generateAuthToken = function() {
-    return jwt.sign({username: this.username, email: this.email, telephone: this.telephone}, process.env.JWT_PRIVATE_KEY, {
+    return jwt.sign({username: this.username, email: this.email, telephone: this.telephone, isAdmin: this.isAdmin}, process.env.JWT_PRIVATE_KEY, {
         expiresIn: '1d'
     });
 }

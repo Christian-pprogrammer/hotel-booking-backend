@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 exports.connect = async () => {
     try{
-        await mongoose.connect('mongodb://localhost/hotel-booking', {
+        await mongoose.connect(process.env.CONNECTION, {
             useNewUrlParser: true,
             useUnifiedTopology: true
         });
